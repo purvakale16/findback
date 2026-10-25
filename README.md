@@ -1,96 +1,119 @@
-# FindBack 
+# FindBack — Campus Lost & Found Platform
 
-### Lost something? Let's bring it back.
-
-FindBack is a campus-focused Lost & Found platform designed to help students discover lost belongings and report items they have found. It provides a simple, user-friendly interface to make finding lost items easier within a campus community.
+FindBack is a campus lost and found web application that helps students report lost belongings and share information about items they have found.
 
 ## Features
 
-- **Browse Items** — Explore reported lost and found belongings.
-- **Search & Filter** — Find items using search and category filters.
-- **Report Items** — Submit details about lost or found belongings.
-- **Responsive Design** — A clean interface designed for convenient browsing across screen sizes.
-- **Local Storage** — Save listings in the browser for persistence across page refreshes on the same browser.
+- Browse lost and found listings
+- Search items by name, category, location, and description
+- Filter listings by item category and status
+- Report lost or found items through a form
+- Store item listings in a MySQL database
+- React-based frontend with an Express backend API
 
 ## Tech Stack
 
-- **React** — Component-based user interface
-- **Vite** — Fast development server and build tooling
-- **CSS** — Styling and responsive layouts
-- **JavaScript** — Application logic and interactivity
-- **Local Storage** — Browser-side data persistence
+**Frontend**
+- React
+- Vite
+- CSS
 
-## Getting Started
-
-Follow these steps to run FindBack locally.
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/)
-- npm (included with Node.js)
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/purvakale16/findback.git
-   ```
-
-2. Navigate to the project folder:
-
-   ```bash
-   cd findback
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-5. Open the local URL displayed in your terminal, usually `http://localhost:5173/`.
+**Backend**
+- Node.js
+- Express.js
+- MySQL
+- mysql2
+- dotenv
+- CORS
 
 ## Project Structure
 
 ```text
 findback/
-├── public/
+├── backend/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── server.js
 ├── src/
-│   ├── assets/
 │   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── index.html
+│   └── App.css
+├── .gitignore
 ├── package.json
-└── vite.config.js
+└── README.md
 ```
 
-## Data Storage
+## Getting Started
 
-FindBack currently uses browser Local Storage to persist item listings. Data is stored locally in the browser and is not shared automatically between different users or devices. A backend and database can be integrated in the future to support a shared campus-wide platform.
+### Prerequisites
 
-## Future Improvements
+Install Node.js and MySQL before running the project.
 
-- User authentication and profiles
-- Backend API and database integration
-- Image uploads for lost and found items
-- Item ownership verification and claim workflow
-- Notifications when a matching item is reported
+### 1. Clone the repository
 
-## Author
+```bash
+git clone https://github.com/purvakale16/findback.git
+cd findback
+```
+
+### 2. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure the database
+
+Create a MySQL database named `findback_db` and create an `items` table with the columns required by the backend.
+
+Create a `.env` file inside the `backend` folder with your local database configuration:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=findback_db
+DB_PORT=3306
+```
+
+Replace `your_mysql_password` with your own local MySQL password. Never commit your actual `.env` file or database credentials to GitHub.
+
+### 4. Install backend dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### 5. Start the backend
+
+```bash
+node server.js
+```
+
+### 6. Start the frontend
+
+Open a second terminal in the project root and run:
+
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite, usually `http://localhost:5173`.
+
+## API Endpoints
+
+| Method | Endpoint     |      Purpose                      |
+|--------|--------------|-----------------------------------|
+|   GET  |    `/`       | Check that the backend is running |
+|   GET  | `/api/items` | Retrieve item listings            |
+|   POST | `/api/items` | Create a new item listing         |
+
+## Project Goal
+
+The goal of FindBack is to make it easier for campus communities to report, discover, and reunite lost belongings.
+
+## Developer
 
 **Purva Kale**
 
-- GitHub: [@purvakale16](https://github.com/purvakale16)
-
----
-
-*Built with React and Vite to make campus lost and found simpler.*
+GitHub: [purvakale16](https://github.com/purvakale16)
