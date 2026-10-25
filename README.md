@@ -112,6 +112,17 @@ Open the local URL printed by Vite, usually `http://localhost:5173`.
 
 The goal of FindBack is to make it easier for campus communities to report, discover, and reunite lost belongings.
 
+## Screenshots
+
+### Home Page
+![Home Page](home.png)
+
+### Lost & Found Listings
+![Listings](listing.png)
+
+### Report an Item
+![Report Form](report-form.png)
+
 ## Developer
 
 **Purva Kale**
